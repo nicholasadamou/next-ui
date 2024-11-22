@@ -27,15 +27,26 @@ export function Footer(): React.JSX.Element {
 	}, [])
 
 	return (
-		<footer className="flex flex-col-reverse gap-2 sm:flex-row mt-32 py-6 w-full shrink-0 items-center">
-			<p className="text-xs text-[#6C848C]">© {new Date().getFullYear()} Nicholas Adamou. All rights reserved.</p>
+		<footer className="flex flex-row gap-2 sm:flex-row mt-32 py-6 w-full shrink-0 items-center justify-between">
+			<p className="text-xs text-muted-foreground">
+				Made by{' '}
+				<Link
+					className="text-xs hover:text-primary transition-colors duration-200"
+					href="https://nicholasadamou.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					>
+					Nicholas Adamou
+				</Link>
+				.
+			</p>
 			<nav className="sm:ml-auto flex gap-4 sm:gap-6 items-center">
 				{commitHash && (
 					<TooltipProvider>
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<Link
-									className="text-xs hover:text-primary transition-colors duration-200 text-[#6C848C] flex items-center gap-1 bg-[#F0F7F8] py-1 px-2 rounded-full"
+									className="text-xs transition-colors duration-200 text-black flex items-center gap-1 bg-gradient-to-br from-white to-stone-500 py-1 px-2 rounded-full"
 									href={`https://github.com/nicholasadamou/ui/commit/${commitHash}`}
 									target="_blank"
 									rel="noopener noreferrer"
