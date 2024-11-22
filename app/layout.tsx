@@ -22,7 +22,7 @@ import { Footer } from "@/components/footer"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
-  title: "UI",
+  title: "Next UI",
   description: "A collection of UI beautifully crafted components"
 }
 
