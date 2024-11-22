@@ -1,3 +1,5 @@
+import React from "react"
+
 import { Code } from "@/code"
 import { Lang } from "shiki"
 

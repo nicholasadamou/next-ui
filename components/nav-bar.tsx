@@ -49,7 +49,7 @@ export function Navbar() {
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.95 }}
 				>
-					<Icons.gitHub className="size-6 text-slate-400 transition-colors hover:text-white" />
+					<Icons.github className="size-6 text-slate-400 transition-colors hover:text-white" />
 				</motion.a>
 			</motion.nav>
 		</motion.header>
