@@ -2,8 +2,32 @@
 
 import Link from "next/link"
 import React, { useEffect, useState } from "react"
-import { Github, GitCommit } from "lucide-react"
+import { Github, GitCommit } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { motion } from "framer-motion"
+
+const footerVariants = {
+	hidden: { opacity: 0, y: 20 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.5,
+			ease: "easeOut",
+			when: "beforeChildren",
+			staggerChildren: 0.1
+		}
+	}
+}
+
+const childVariants = {
+	hidden: { opacity: 0, y: 10 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.3, ease: "easeOut" }
+	}
+}
 
 export function Footer(): React.JSX.Element {
 	const [commitHash, setCommitHash] = useState<string | null>(null)
@@ -27,33 +51,43 @@ export function Footer(): React.JSX.Element {
 	}, [])
 
 	return (
-		<footer className="flex flex-row gap-2 mt-32 py-6 w-full shrink-0 items-center justify-between">
-			<p className="text-sm text-muted-foreground">
+		<motion.footer
+			className="flex flex-row gap-2 mt-32 py-6 w-full shrink-0 items-center justify-between"
+			initial="hidden"
+			animate="visible"
+			variants={footerVariants}
+		>
+			<motion.p className="text-sm text-muted-foreground" variants={childVariants}>
 				Made by{' '}
 				<Link
 					className="text-sm hover:text-primary transition-colors duration-200"
 					href="https://nicholasadamou.com"
 					target="_blank"
 					rel="noopener noreferrer"
-					>
+				>
 					Nicholas Adamou
 				</Link>
 				.
-			</p>
-			<nav className="sm:ml-auto flex gap-4 sm:gap-6 items-center">
+			</motion.p>
+			<motion.nav className="sm:ml-auto flex gap-4 sm:gap-6 items-center" variants={childVariants}>
 				{commitHash && (
 					<TooltipProvider>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<Link
-									className="text-sm transition-colors duration-200 text-muted-foreground flex items-center gap-1 bg-[#181818] py-1 px-2 rounded-full"
-									href={`https://github.com/nicholasadamou/ui/commit/${commitHash}`}
-									target="_blank"
-									rel="noopener noreferrer"
+								<motion.div
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.95 }}
 								>
-									<GitCommit className="w-4 h-4" />
-									<span className="font-mono">{commitHash.slice(0, 7)}</span>
-								</Link>
+									<Link
+										className="text-sm transition-colors duration-200 text-muted-foreground flex items-center gap-1 bg-[#181818] py-1 px-2 rounded-full"
+										href={`https://github.com/nicholasadamou/ui/commit/${commitHash}`}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<GitCommit className="w-4 h-4" />
+										<span className="font-mono">{commitHash.slice(0, 7)}</span>
+									</Link>
+								</motion.div>
 							</TooltipTrigger>
 							<TooltipContent>
 								<p>View latest commit</p>
@@ -61,15 +95,20 @@ export function Footer(): React.JSX.Element {
 						</Tooltip>
 					</TooltipProvider>
 				)}
-				<Link
-					className="text-sm hover:text-primary transition-colors duration-200 text-[#6C848C] flex items-center gap-1"
-					href="https://github.com/nicholasadamou/ui"
-					target="_blank"
-					rel="noopener noreferrer"
+				<motion.div
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.95 }}
 				>
-					<Github className="w-4 h-4" />
-				</Link>
-			</nav>
-		</footer>
+					<Link
+						className="text-sm hover:text-primary transition-colors duration-200 text-[#6C848C] flex items-center gap-1"
+						href="https://github.com/nicholasadamou/ui"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Github className="w-4 h-4" />
+					</Link>
+				</motion.div>
+			</motion.nav>
+		</motion.footer>
 	)
 }
