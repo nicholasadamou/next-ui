@@ -37,12 +37,12 @@ export function Navbar() {
 		>
 			<motion.div variants={childVariants}>
 				<Link href="/">
-					<div className="text-xl font-bold text-white">UI</div>
+					<div className="text-xl font-bold text-white">Next UI</div>
 				</Link>
 			</motion.div>
 			<motion.nav className="flex gap-6" variants={childVariants}>
 				<motion.a
-					href="https://github.com/nicholasadamou/ui"
+					href="https://github.com/nicholasadamou/next-ui"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="inline-flex"

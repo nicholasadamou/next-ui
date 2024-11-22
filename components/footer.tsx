@@ -80,7 +80,7 @@ export function Footer(): React.JSX.Element {
 								>
 									<Link
 										className="text-sm transition-colors duration-200 text-muted-foreground flex items-center gap-1 bg-[#181818] py-1 px-2 rounded-full"
-										href={`https://github.com/nicholasadamou/ui/commit/${commitHash}`}
+										href={`https://github.com/nicholasadamou/next-ui/commit/${commitHash}`}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
@@ -101,7 +101,7 @@ export function Footer(): React.JSX.Element {
 				>
 					<Link
 						className="text-sm hover:text-primary transition-colors duration-200 text-muted-foreground flex items-center gap-1"
-						href="https://github.com/nicholasadamou/ui"
+						href="https://github.com/nicholasadamou/next-ui"
 						target="_blank"
 						rel="noopener noreferrer"
 					>

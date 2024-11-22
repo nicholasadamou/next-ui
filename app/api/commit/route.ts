@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
 	const GITHUB_USERNAME = 'nicholasadamou';
-	const REPO_NAME = 'ui';
+	const REPO_NAME = 'next-ui';
 	const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 	// Check if the GitHub token is provided
