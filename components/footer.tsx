@@ -100,7 +100,7 @@ export function Footer(): React.JSX.Element {
 					whileTap={{ scale: 0.95 }}
 				>
 					<Link
-						className="text-sm hover:text-primary transition-colors duration-200 text-[#6C848C] flex items-center gap-1"
+						className="text-sm hover:text-primary transition-colors duration-200 text-muted-foreground flex items-center gap-1"
 						href="https://github.com/nicholasadamou/ui"
 						target="_blank"
 						rel="noopener noreferrer"
