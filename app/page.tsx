@@ -1,8 +1,13 @@
 'use client'
 
+import { useEffect, useState } from "react";
 import { COMPONENTS_LIST } from "@/data/component-list"
 import { CardContainer } from "@/components/card-container"
 import { motion } from "framer-motion"
+
+const shuffleArray = (array: any[]) => {
+	return array.sort(() => Math.random() - 0.5);
+};
 
 const headerVariants = {
 	hidden: { opacity: 0, y: -20 },
@@ -47,6 +52,12 @@ const gridItemVariants = {
 }
 
 export default function Home() {
+	const [components, setComponents] = useState(COMPONENTS_LIST);
+
+	useEffect(() => {
+		setComponents(shuffleArray([...COMPONENTS_LIST]));
+	}, []);
+
 	return (
 		<>
 			<motion.section
@@ -79,7 +90,7 @@ export default function Home() {
 				animate="visible"
 			>
 				<div className="grid grid-cols-1 gap-36 md:grid-cols-2 lg:grid-cols-3">
-					{COMPONENTS_LIST.map((item, index) => (
+					{components.map((item, index) => (
 						<motion.div key={index} variants={gridItemVariants}>
 							<CardContainer
 								slug={item.slug}
@@ -95,4 +106,3 @@ export default function Home() {
 		</>
 	)
 }
-
