@@ -92,7 +92,6 @@ export const COMPONENTS_LIST = [
     component: InfiniteCarouselDemo,
     slug: "infinite-carousel",
     description: "A carousel component with infinite motion.",
-    twConfig: TWCONFIG["infinite-scroll"]
   },
   {
     name: "Meteors",
